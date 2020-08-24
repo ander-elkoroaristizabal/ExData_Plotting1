@@ -19,5 +19,7 @@ if (!exists("data")){
 } 
 
 png(filename = "plot1.png", res = 125)
-with(data, hist(Global_active_power, col= 'red'))
+with(data, hist(Global_active_power, col= 'red', 
+                main = "Global active power",
+                xlab = "Global active power (kilowats)"))
 dev.off()
