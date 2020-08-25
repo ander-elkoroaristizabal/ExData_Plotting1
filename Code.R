@@ -50,3 +50,33 @@ with(data, lines(Sub_metering_3~Datetime, col="blue"))
 legend("topright", col=c("black", "red", "blue"), lwd=c(1,1,1), 
        c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
 dev.off()
+
+# Code for plot4.png:
+
+png(filename = "plot4.png", width=3000, height=2000, res=100, pointsize = 30)
+par(mfrow=c(2,2))
+
+# (1,1) plot:
+
+with(data, plot(Global_active_power~Datetime, type = "l", ylab = "Global Active Power (kilowatts)",))
+
+# (1,2) plot:
+
+with(data, plot(Voltage~Datetime, type = "l", ylab = "Voltage"))
+
+# (2,1) plot:
+
+with(data, plot(Sub_metering_1~Datetime, type = "l", ylab = "Energy sub metering"))
+
+# and add the rest using lines()
+with(data, lines(Sub_metering_2~Datetime, col="red"))
+
+with(data, lines(Sub_metering_3~Datetime, col="blue"))
+
+legend("topright", col=c("black", "red", "blue"), lwd=c(1,1,1), 
+       c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+
+# (2,2) plot:
+
+with(data, plot(Global_reactive_power~Datetime, type = "l", ylab = "Global reactive power"))
+dev.off()
