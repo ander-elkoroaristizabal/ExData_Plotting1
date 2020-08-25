@@ -20,7 +20,7 @@ if (!exists("data")){
 
 # Code for plot1.png:
 
-png(filename = "plot1.png", res = 125)
+png(filename = "figure/plot1.png", res = 125)
 with(data, hist(Global_active_power, col= 'red', 
                 main = "Global active power",
                 xlab = "Global active power (kilowats)"))
@@ -31,13 +31,13 @@ dev.off()
 data["Datetime"] = with(data, paste(Date,Time))
 data$Datetime = as.POSIXct(data$Datetime, format = "%d/%m/%Y %H:%M:%S")
 
-png(filename = "plot2.png", width=1440, height=1200, res=100, pointsize = 30)
+png(filename = "figure/plot2.png", width=1440, height=1200, res=100, pointsize = 30)
 with(data, plot(Global_active_power ~ Datetime, type="l", ylab="Global Active Power (kilowatts)", xlab=""))
 dev.off()
 
 # Code for plot3.png:
 
-png(filename = "plot3.png", width=2500, height=2000, res=100, pointsize = 30)
+png(filename = "figure/plot3.png", width=2500, height=2000, res=100, pointsize = 30)
 # We plot one of the curves first:
 
 with(data, plot(Sub_metering_1~Datetime, type = "l", ylab = "Energy sub metering"))
@@ -53,7 +53,7 @@ dev.off()
 
 # Code for plot4.png:
 
-png(filename = "plot4.png", width=3000, height=2000, res=100, pointsize = 30)
+png(filename = "figure/plot4.png", width=3000, height=2000, res=100, pointsize = 30)
 par(mfrow=c(2,2))
 
 # (1,1) plot:
